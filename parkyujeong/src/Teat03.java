@@ -1,5 +1,5 @@
-class Car1{
-    Car1(String color,int cc){
+class Teat03{
+    Teat03(String color,int cc){
 
     }
 

@@ -1,9 +1,9 @@
 public class Ex35 {
     public static void main(String[]args){
-        Student s1 = new Student();
+        Teat s1 = new Teat();
         System.out.println(s1);
 
-        Student s2 = new Student();
+        Teat s2 = new Teat();
         System.out.println(s2);
 
     }
