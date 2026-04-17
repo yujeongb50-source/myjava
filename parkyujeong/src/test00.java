@@ -15,11 +15,9 @@ public static void main(String[] args){
 
 
  
-int max = 75;
-if(max<=90) {
- System.out.println("최고 점수: 75점");
+
+   
+      System.out.println("최고점수:" +(int)scores[10]+"점");
+   }
 }
 
-
-}
-}
