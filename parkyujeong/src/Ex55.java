@@ -1,11 +1,11 @@
 public class Ex55 {
     public static void main(String[] args) {
 
-        String data1 = nu11;
-        String data2 = nu11;
+        String data1 = null;
+        String data2 = null;
         try{
-            daga1 = args[0];
-            data = args[1];
+            data1 = args[0];
+            data2 = args[1];
         }catch (ArrayIndexOutOfBoundsException e){
             System.out.println("실행 매개값의 수가 부족합니다.");
             System.out.println("[실행 방법]");
@@ -15,8 +15,8 @@ public class Ex55 {
         try{
             int value1 = Interger.parseInt(data1);
             int value2 = Interger.parseInt(data2);
-            int result = vlau1 + value2;
-            System.out.println(data1 + "+" + data2 + "=" + resulte);
+            int result = value1 + value2;
+            System.out.println(data1 + "+" + data2 + "=" + result);
         } catch(NumberFormatException e) {
             System.out.println("숫자로 변환할 수 없습니다.");
 
