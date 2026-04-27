@@ -1,23 +1,23 @@
 package Conex;
 
 import java.io.FileInputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.Connection; //DB 연결
+import java.sql.DriverManager; //연결 생성
+import java.sql.PreparedStatement; //SQL 실행
+import java.sql.ResultSet; // 결과 받기
 import java.sql.SQLException;
 
 public class Test02{
 
     
     public static void main(String[]args) {
-        Connection conn = null;
+        Connection conn = null; //DB 연결 담는 변수
 
         try{
-            //JDBC Driver 등록
+            //JDBC Driver 등록  ( Oracle DB 사용 준비)
             Class.forName("oracle.jdbc.OracleDriver");
 
-            //연결하기
+            //연결하기 (DB 로그인)
             conn = DriverManager.getConnection(
                 "jdbc:oracle:thin:@localhost:1521:xe",
                 "system",
@@ -29,6 +29,10 @@ public class Test02{
          String sql = "" +
          " InSERT INTO boards (bno, btitle, bcontent, bwriter, bdate, bfilename)" +
          " VALUES (SEQ_BNO.NEXTVAL, ?, ?, ?, SYSDATE, ?)";
+          //SEQ_BNO 시퀀스 이름 
+          //NEXTVAL "다음 값"을 의미 (현재 시퀀스 값 + 1)
+
+
 
          //PreparedStatement 얻기 및 값 지정
          PreparedStatement pstmt = conn.prepareStatement(sql, new String[] {"bno"});
