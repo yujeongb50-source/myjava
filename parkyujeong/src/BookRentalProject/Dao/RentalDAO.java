@@ -8,6 +8,8 @@ package BookRentalProject.Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
+import java.util.ArrayList;
 
 public class RentalDAO {
 
@@ -85,5 +87,56 @@ public class RentalDAO {
             e.printStackTrace();
         }
     }
+
+    public int findBookIdByRentalId(int rentalId) {
+
+        int bookId = 0;
+
+        try{
+            String sql = "SELECT BOOK_ID FROM RENTAL WHERE RENTAL_ID = ?";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, rentalId);
+
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()) {
+                bookId = rs.getInt("BOOK_ID");
+
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        return bookId;
+    } 
+    public List<String> getRentalList(String memberId) {
+        List<String> list = new ArrayList<>();
+
+        try{
+            String sql = "SELECT * FROM RENTAL WHERE MEMBER_ID = ?";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, memberId);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                list.add(
+                    "RENTAL_ID: " + rs.getInt("RENTAL_ID") +
+                    ", BOOK_ID " + rs.getInt("BOOK_ID")
+                );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+
+
+    }
+
+   
+    }
     
-}
+

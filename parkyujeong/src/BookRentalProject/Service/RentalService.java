@@ -1,9 +1,12 @@
-//규칙 처리
+// 렌탈 관련 로직
 
 
 
 
 package BookRentalProject.Service;
+
+import BookRentalProject.Dao.RentalDAO;
+import BookRentalProject.Dao.BookDAO;
 
 public class RentalService {
 
@@ -26,20 +29,23 @@ public class RentalService {
         // 3. 도서 상태 변경
         bookDAO.updateUnavailable(bookId);
 
-        System.out.println("대여 완료");
+
+        System.out.println("대여 완료 (도서 ID: " + bookId + ")");
     }
 
     public void returnBook(int rentalId) {
 
-        // 1. 반납 처리
-        rentalDAO.returnBook(rentalId);
-    
-        System.out.println("반납 완료");
-        public void myPage(String memberId) {
+        // 1. 해당 대여의 bookId 조회
+        int bookId = rentalDAO.findBookIdByRentalId(rentalId);
 
-            int count = rentalDAO.countRental(memberId);
-        
-            System.out.println("현재 대여 수: " + count);
-        }
+        // 2. 반납 처리
+        rentalDAO.returnBook(rentalId);
+
+        // 3. 도서 상태 복구
+        bookDAO.updateAvailable(bookId);
+    
+        System.out.println("반납 완료"); 
     }
-}
+
+    
+    }

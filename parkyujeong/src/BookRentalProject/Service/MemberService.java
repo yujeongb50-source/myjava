@@ -1,9 +1,11 @@
-//규칙 처리
+// 회원 관련 로직
 
 
 
 
 package BookRentalProject.Service;
+
+import BookRentalProject.Dao.MemberDAO;
 
 public class MemberService {
 
