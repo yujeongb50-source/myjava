@@ -30,7 +30,6 @@ public class Main {
             System.out.println("3. 도서 검색");
             System.out.println("4. 도서 대여");
             System.out.println("5. 도서 반납");
-            System.out.println("6. 마이페이지");
             System.out.println("0. 종료");
 
             System.out.print("선택 >> ");

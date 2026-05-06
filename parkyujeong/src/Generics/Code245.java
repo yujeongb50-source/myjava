@@ -17,7 +17,7 @@ class PersonComparator implements Comparator<Person> {
 }
 
 
-public class Code245 {
+public class Code245 { 
     public static void main(String[] args) {
         TreeSet<Person> ts = new TreeSet<>(new PersonComparator());
         ts.add(new Person(4,83));
